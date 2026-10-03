@@ -1,20 +1,20 @@
 import type { EcosystemLink } from '../config/links';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface LinkCardProps {
   link: EcosystemLink;
+  onClick: () => void;
 }
 
-export const LinkCard: React.FC<LinkCardProps> = ({ link }) => {
+export const LinkCard: React.FC<LinkCardProps> = ({ link, onClick }) => {
   const IconComponent = link.icon;
 
   return (
-    <a
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-blue-500/40 dark:hover:border-blue-400/40 transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950"
-      aria-label={`${link.name} - ${link.description} (opens in new tab)`}
+    <button
+      type="button"
+      onClick={onClick}
+      className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-blue-500/40 dark:hover:border-blue-400/40 transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950 text-left cursor-pointer"
+      aria-label={`View links for ${link.name} - ${link.description}`}
     >
       {/* Subtle hover background highlight */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/5 via-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"></div>
@@ -47,12 +47,12 @@ export const LinkCard: React.FC<LinkCardProps> = ({ link }) => {
       {/* Right section: Action indicator button */}
       <div className="flex-shrink-0 flex items-center gap-1 pl-2 relative z-10">
         <span className="hidden sm:inline text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {link.buttonText}
+          View Links
         </span>
         <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-200">
-          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
         </div>
       </div>
-    </a>
+    </button>
   );
 };

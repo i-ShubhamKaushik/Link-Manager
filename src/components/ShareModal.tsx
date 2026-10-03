@@ -12,7 +12,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://bidsetu.in';
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://onebuildsmanager.vercel.app/';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(currentUrl);

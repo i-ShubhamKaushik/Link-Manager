@@ -1,12 +1,13 @@
-import { Landmark, Database, ScanText, Layers } from 'lucide-react';
+import { Landmark, Database, ScanText } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface EcosystemLink {
   id: string;
   name: string;
   description: string;
-  url: string;
-  buttonText: string;
+  github: string;
+  live: string;
+  buttonText?: string;
   iconName: string;
   icon: LucideIcon;
   badge?: string;
@@ -23,29 +24,26 @@ export interface EcosystemConfig {
 }
 
 export const ECOSYSTEM_CONFIG: EcosystemConfig = {
-  organizationName: "BIDSETU",
-  handle: "@bidsetu",
-  tagline: "Unified Tender & Procurement Ecosystem",
-  subtagline: "Official Public Services & Portals",
+  organizationName: "OneBuilds Manager",
+  handle: "@onebuilds",
+  tagline: "OneBuilds SIH Team Project Hub",
+  subtagline: "Official Projects & Live Portals",
   verified: true,
   copyrightYear: 2026,
 };
 
 /**
- * PUBLIC ECOSYSTEM LINKS CONFIGURATION
- * 
- * Instructions:
- * - Update the `url` properties below with the official live public URLs.
- * - For Product #4 (FOURTH PRODUCT), modify the `name`, `description`, `url`, and `icon` properties below.
- * - Only publicly accessible URLs should be listed here. No admin/localhost/private links.
+ * PUBLIC ECOSYSTEM PROJECTS CONFIGURATION
+ * Contains exact project details: BidSetu, Data Setu, Paddle OCR
  */
 export const ECOSYSTEM_LINKS: EcosystemLink[] = [
   {
     id: "bidsetu",
-    name: "BIDSETU",
+    name: "BidSetu",
     description: "Unified Tender & Procurement Platform",
-    url: "https://bidsetu.in", // Configure official public URL here
-    buttonText: "BIDSETU →",
+    github: "https://github.com/onepiet/Bidsetu",
+    live: "https://bidsetu.onrender.com/",
+    buttonText: "BidSetu →",
     iconName: "Landmark",
     icon: Landmark,
     badge: "Core Platform",
@@ -53,39 +51,26 @@ export const ECOSYSTEM_LINKS: EcosystemLink[] = [
   },
   {
     id: "data-setu",
-    name: "DATA SETU",
+    name: "Data Setu",
     description: "Access and explore structured procurement data",
-    url: "https://data.bidsetu.in", // Configure official public URL here
-    buttonText: "DATA SETU →",
+    github: "https://github.com/onepiet/DATASETU/",
+    live: "https://datasetu-de8y.onrender.com/",
+    buttonText: "Data Setu →",
     iconName: "Database",
     icon: Database,
     badge: "Data & Insights",
     isCore: true,
   },
   {
-    id: "ocr-extractor",
-    name: "OCR EXTRACTOR",
+    id: "paddle-ocr",
+    name: "Paddle OCR",
     description: "Extract structured information from tender documents using OCR",
-    url: "https://ocr.bidsetu.in", // Configure official public URL here
-    buttonText: "OCR EXTRACTOR →",
+    github: "https://github.com/onepiet/PaddleOcr",
+    live: "https://paddleocrr.onrender.com/",
+    buttonText: "Paddle OCR →",
     iconName: "ScanText",
     icon: ScanText,
     badge: "AI Extraction",
     isCore: true,
-  },
-  /* ========================================================================
-   * 4TH ECOSYSTEM PRODUCT CONFIGURATION
-   * Update name, description, url, and icon below as needed.
-   * ======================================================================== */
-  {
-    id: "fourth-product",
-    name: "CONTRACT SETU", // Change name here if 4th product name is finalized
-    description: "Smart contract lifecycle management and verification", // Change description here
-    url: "https://contracts.bidsetu.in", // Configure official public URL here
-    buttonText: "CONTRACT SETU →",
-    iconName: "Layers",
-    icon: Layers,
-    badge: "Public Service",
-    isCore: false,
   },
 ];
